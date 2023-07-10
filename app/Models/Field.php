@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Lecture;
 
-class Teacher extends Model
+class Field extends Model
 {
     use HasFactory;
     

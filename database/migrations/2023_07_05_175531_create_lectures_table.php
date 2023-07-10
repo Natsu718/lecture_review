@@ -15,9 +15,10 @@ return new class extends Migration
     {
         Schema::create('lectures', function (Blueprint $table) {
             $table->id();
+            $table->string('name', 50);
             $table->foreignId('field_id')->constrained();
             $table->foreignId('teacher_id')->constrained();
-            $table->string('name', 50);
+            $table->foreignId('department_id')->constrained();
             $table->timestamps();
             $table->softDeletes();
         });

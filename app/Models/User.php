@@ -10,7 +10,7 @@ use Laravel\Sanctum\HasApiTokens;
 use App\Models\Department;
 use App\Models\Post;
 
-class User extends Authenticatable
+class User extends Authenticatable 
 {
     use HasApiTokens, HasFactory, Notifiable;
 
@@ -21,6 +21,7 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'department_id',
         'email',
         'password',
     ];
@@ -44,15 +45,15 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
     
-    public function posts()   
-    {
-        return $this->hasMany(Post::class);  
-    }
+    // public function posts()   
+    // {
+    //     return $this->hasMany(Post::class);  
+    // }
     
-    public function department()
-    {
-        return $this->belongsTo(Department::class);
-    }
+    // public function department()
+    // {
+    //     return $this->belongsTo(Department::class);
+    // }
     
     
 }

@@ -16,13 +16,13 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('users')->insert([
-            'name' => '小幡菜摘',
-            'department_id' => '3',
-            'email' => 'natsumiob1216@gmail.com',
-            'password' => '12345678',
-            'created_at' => new DateTime(),
-            'updated_at' => new DateTime(),
-        ]);
+        // DB::table('users')->insert([
+        //     'name' => '小幡菜摘',
+        //     'department_id' => '3',
+        //     'email' => 'natsumiob1216@gmail.com',
+        //     'password' => '12345678',
+        //     'created_at' => new DateTime(),
+        //     'updated_at' => new DateTime(),
+        // ]);
     }
 }

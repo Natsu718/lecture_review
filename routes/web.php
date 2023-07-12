@@ -1,8 +1,12 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\ProfileController;
+// use App\Http\Controllers\DepartmentController;
+// use App\Http\Controllers\GradeController;
+// use App\Http\Controllers\TeacherController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -23,12 +27,23 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+
+Route::controller(PostController::class)->middleware(['auth'])->group(function(){
+    Route::get('/search', 'search')->name('search');
+    Route::post('/posts', 'store')->name('store');
+    Route::get('/posts/create', 'create')->name('create');
+    Route::get('/posts/create/post', 'create_post')->name('create_post');
+    Route::get('/user/posts', 'my_show')->name('my_show');
+    Route::get('/search/post', 'show')->name('show');
+    Route::put('/posts/{post}', 'update')->name('update');
+    Route::delete('/posts/{post}', 'delete')->name('delete');
+    Route::get('/posts/post/edit', 'edit')->name('edit');
+});
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
-
-Route::get('/', [PostController::class, 'index'])->name('index');
 
 require __DIR__.'/auth.php';

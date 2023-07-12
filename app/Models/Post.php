@@ -25,6 +25,7 @@ class Post extends Model
     
     public function grade_post()   
     {
-        return $this->hasMany(Grade_Post::class);  
+        return $this->hasMany(Grade_Post::class);
     }
+    
 }

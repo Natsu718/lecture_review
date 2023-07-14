@@ -32,6 +32,7 @@ Route::controller(PostController::class)->middleware(['auth'])->group(function()
     Route::get('/search', 'search')->name('search');
     Route::post('/posts', 'store')->name('store');
     Route::get('/posts/create', 'create')->name('create');
+    Route::get('/posts/create/lectures', 'lecture_search')->name('lecture_search');
     Route::get('/posts/create/post', 'create_post')->name('create_post');
     Route::get('/user/posts', 'my_show')->name('my_show');
     Route::get('/search/post', 'show')->name('show');

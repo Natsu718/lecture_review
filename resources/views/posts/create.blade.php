@@ -4,132 +4,54 @@
             {{ __('Create') }} 
         </h2>
     </x-slot>
-    <h1>Blog Name</h1>
+    <h1>授業を追加</h1>
         <form action="/posts" method="POST">
             @csrf
-            <div class="title">
-                <h2>Title</h2>
-                <input type="text" name="post[title]" placeholder="タイトル"/>
+            <div class="lecturer">
+                <!--科目名-->
+                <h2>科目名（シラバス通りに入力　英数は半角）</h2>
+                <input type="text" name="lecture[name]" placeholder="早稲田の歴史"/>
+                
+                <!--分野コード-->
+                <x-input-label for="field" :value="__('分野コードを選択')" />
+                <select class="block mt-1 w-full" name="field">
+                    @foreach($fields as $field)
+                        <option value="{{ $field->id }}">{{ $field->name }}</option>
+                    @endforeach
+                </select>
+                <x-input-error :messages="$errors->get('field')" class="mt-2" />
+                
+                <!--教員名検索-->
+                <x-input-label for="teacher" :value="__('教員を選択')" />
+                <select class="block mt-1 w-full" name="teacher">
+                    @foreach($teacheres as $teacher)
+                        <option value="{{ $teacher->id }}">{{ $teacher->name }}</option>
+                    @endforeach
+                </select>
+                <x-input-error :messages="$errors->get('teacher')" class="mt-2" />
+                
+                <!--学部-->
+                <x-input-label for="department" :value="__('学部を選択')" />
+                <select class="block mt-1 w-full" name="department">
+                    @foreach($departments as $department)
+                        <option value="{{ $department->id }}">{{ $department->name }}</option>
+                    @endforeach
+                </select>
+                <x-input-error :messages="$errors->get('department')" class="mt-2" />
             </div>
-            <div class="body">
-                <h2>Body</h2>
-                <textarea name="post[body]" placeholder="今日も1日お疲れさまでした。"></textarea>
+            <input type="submit" value="登録"/>
+        </form>
+    <br>
+    <h1>教員を追加</h1>
+        <form action="/posts" method="POST">
+            @csrf
+            <div class="teacher">
+                <h2>教員名（スペースなし）</h2>
+                <input type="text" name="teacher[name]" placeholder="早稲田太郎"/>
             </div>
-            <input type="submit" value="store"/>
+            <input type="submit" value="登録"/>
         </form>
         <div class="footer">
-            <a href="/">戻る</a>
+            <a href="/dashboard">戻る</a>
         </div>
-        
-    @extends('layout.bbslayout')
-     
-    @section('title', 'LaravelPjt BBS 投稿ページ')
-    @section('keywords', 'キーワード1,キーワード2,キーワード3')
-    @section('description', '投稿ページの説明文')
-    @section('pageCss')
-    <link href="/css/bbs/style.css" rel="stylesheet">
-    @endsection
-     
-    @include('layout.bbsheader')
-     
-    @section('content')
-    <div class="container mt-4">
-        <div class="border p-4">
-            <h1 class="h4 mb-4 font-weight-bold">
-                投稿の新規作成
-            </h1>
-     
-            <form method="POST" action="{{ route('bbs.store') }}">
-                @csrf
-     
-                <fieldset class="mb-4">
-     
-                    <div class="form-group">
-                        <label for="subject">
-                            名前
-                        </label>
-                        <input
-                            id="name"
-                            name="name"
-                            class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}"
-                            value="{{ old('name') }}"
-                            type="text"
-                        >
-                        @if ($errors->has('name'))
-                            <div class="invalid-feedback">
-                                {{ $errors->first('name') }}
-                            </div>
-                        @endif
-                    </div>
-     
-                    <div class="form-group">
-                        <label for="subject">
-                            カテゴリー
-                        </label>
-                        <input
-                            id="category_id"
-                            name="category_id"
-                            class="form-control {{ $errors->has('category_id') ? 'is-invalid' : '' }}"
-                            value="{{ old('category_id') }}"
-                            type="text"
-                        >
-                        @if ($errors->has('category_id'))
-                            <div class="invalid-feedback">
-                                {{ $errors->first('category_id') }}
-                            </div>
-                        @endif
-                    </div>
-     
-                    <div class="form-group">
-                        <label for="subject">
-                            件名
-                        </label>
-                        <input
-                            id="subject"
-                            name="subject"
-                            class="form-control {{ $errors->has('subject') ? 'is-invalid' : '' }}"
-                            value="{{ old('subject') }}"
-                            type="text"
-                        >
-                        @if ($errors->has('subject'))
-                            <div class="invalid-feedback">
-                                {{ $errors->first('subject') }}
-                            </div>
-                        @endif
-                    </div>
-     
-                    <div class="form-group">
-                        <label for="message">
-                            メッセージ
-                        </label>
-     
-                        <textarea
-                            id="message"
-                            name="message"
-                            class="form-control {{ $errors->has('message') ? 'is-invalid' : '' }}"
-                            rows="4"
-                        >{{ old('message') }}</textarea>
-                        @if ($errors->has('message'))
-                            <div class="invalid-feedback">
-                                {{ $errors->first('message') }}
-                            </div>
-                        @endif
-                    </div>
-     
-                    <div class="mt-5">
-                        <a class="btn btn-secondary" href="{{ route('bbs.index') }}">
-                            キャンセル
-                        </a>
-     
-                        <button type="submit" class="btn btn-primary">
-                            投稿する
-                        </button>
-                    </div>
-                </fieldset>
-            </form>
-        </div>
-    </div>
-    @endsection
-     
-    @include('layout.bbsfooter')
 </x-app-layout>

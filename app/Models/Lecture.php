@@ -33,5 +33,8 @@ class Lecture extends Model
         return $this->belongsTo(Department::class);
     }
     
+    protected $fillable = [
+        'name'
+    ];
     
 }

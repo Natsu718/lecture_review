@@ -26,6 +26,12 @@ class PostController extends Controller
     {
         return view('posts.search');
     }
+    
+    public function lecture_search()
+    {
+        return view('posts.lecture_search');
+    }
+    
 
     public function show(Post $post)
     {

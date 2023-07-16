@@ -5,7 +5,7 @@
         </h2>
     </x-slot>
     <h1>授業を追加</h1>
-        <form action="/posts" method="POST">
+        <form action="/posts/store" method="POST">
             @csrf
             <div class="lecturer">
                 <!--科目名-->
@@ -14,7 +14,7 @@
                 
                 <!--分野コード-->
                 <x-input-label for="field" :value="__('分野コードを選択')" />
-                <select class="block mt-1 w-full" name="field">
+                <select class="block mt-1 w-full" name="lecture[field_id]">
                     @foreach($fields as $field)
                         <option value="{{ $field->id }}">{{ $field->name }}</option>
                     @endforeach
@@ -23,7 +23,7 @@
                 
                 <!--教員名検索-->
                 <x-input-label for="teacher" :value="__('教員を選択')" />
-                <select class="block mt-1 w-full" name="teacher">
+                <select class="block mt-1 w-full" name="lecture[teacher_id]">
                     @foreach($teacheres as $teacher)
                         <option value="{{ $teacher->id }}">{{ $teacher->name }}</option>
                     @endforeach
@@ -32,7 +32,7 @@
                 
                 <!--学部-->
                 <x-input-label for="department" :value="__('学部を選択')" />
-                <select class="block mt-1 w-full" name="department">
+                <select class="block mt-1 w-full" name="lecture[department_id]">
                     @foreach($departments as $department)
                         <option value="{{ $department->id }}">{{ $department->name }}</option>
                     @endforeach
@@ -43,7 +43,7 @@
         </form>
     <br>
     <h1>教員を追加</h1>
-        <form action="/posts" method="POST">
+        <form action="/posts/store2" method="POST">
             @csrf
             <div class="teacher">
                 <h2>教員名（スペースなし）</h2>

@@ -6,6 +6,10 @@ use App\Models\Field;
 use App\Models\Teacher;
 use App\Models\Department;
 use Illuminate\Http\Request;
+use App\Models\Lecture;
+use App\Http\Requests\LectureRequest;
+use App\Http\Requests\TeacherRequest;
+use App\Http\Requests\PostRequest;
 
 class PostController extends Controller
 {
@@ -49,23 +53,24 @@ class PostController extends Controller
 
     public function store_lecture(Lecture $lecture, LectureRequest $request) 
     {
+        
         $input = $request['lecture'];
-        $post->fill($input)->save();
-        return redirect('/posts/' . $lecture->id);
+        $lecture->fill($input)->save();
+        return redirect('/posts/create');
     }
     
-    public function store_teacher(Teacher $post, TeacherRequest $request) 
+    public function store_teacher(Teacher $teacher, TeacherRequest $request) 
     {
         $input = $request['teacher'];
-        $post->fill($input)->save();
-        return redirect('/posts/' . $teacher->id);
+        $teacher->fill($input)->save();
+        return redirect('/posts/create');
     }
     
     public function store_post(Post $post, PostRequest $request) 
     {
         $input = $request['post'];
         $post->fill($input)->save();
-        return redirect('/posts/' . $post->id);
+        return redirect('/posts/create/post' . $post->id);
     }
     
     public function update(PostRequest $request, Post $post)

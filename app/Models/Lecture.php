@@ -34,7 +34,10 @@ class Lecture extends Model
     }
     
     protected $fillable = [
-        'name'
+        'name',
+        'field_id',
+        'teacher_id',
+        'department_id'
     ];
     
 }

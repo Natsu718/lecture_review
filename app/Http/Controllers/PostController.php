@@ -20,10 +20,28 @@ class PostController extends Controller
         
     }
     
-    public function create_post()
+    
+     public function create_post(Lecture $lecture, Request $request)
     {
-        return view('posts.create_post');
+        $keyword = $request->input('keyword');
+
+        $query = Lecture::query();
+
+        if(!empty($keyword)) {
+            $query->where('name', 'LIKE', "%{$keyword}%");
+        }
+
+        $lectures = $query->get();
+        // dd($keyword);
+        return view('posts.create_post', compact('lectures','keyword'));
     }
+    
+    
+    
+    // public function create_post()
+    // {
+    //     return view('posts.create_post');
+    // }
     
     public function edit(Post $post)
     {
@@ -34,11 +52,7 @@ class PostController extends Controller
     {
         return view('posts.search');
     }
-    
-    public function lecture_search()
-    {
-        return view('posts.lecture_search');
-    }
+
     
 
     public function show(Post $post)

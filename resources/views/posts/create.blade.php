@@ -5,7 +5,7 @@
         </h2>
     </x-slot>
     <h1>授業を追加</h1>
-        <form action="/posts/store" method="POST">
+        <form action="/lectures/store" method="POST">
             @csrf
             <div class="lecturer">
                 <!--科目名-->
@@ -43,7 +43,7 @@
         </form>
     <br>
     <h1>教員を追加</h1>
-        <form action="/posts/store2" method="POST">
+        <form action="/terachers/store" method="POST">
             @csrf
             <div class="teacher">
                 <h2>教員名（スペースなし）</h2>

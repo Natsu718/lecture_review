@@ -17,7 +17,7 @@ class TeacherSeeder extends Seeder
     public function run()
     {
          DB::table('teachers')->insert([
-            'name' => '高島克幸',
+            'name' => '-教員を選択-',
             'created_at' => new DateTime(),
             'updated_at' => new DateTime(),
          ]);

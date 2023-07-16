@@ -5,11 +5,11 @@
         </h2>
     </x-slot>
     <h1>授業を追加</h1>
-        <form action="/posts/store" method="POST">
+        <form action="/lectures/store" method="POST">
             @csrf
             <div class="lecturer">
                 <!--科目名-->
-                <h2>科目名（シラバス通りに入力　英数は半角）</h2>
+                <h2>科目名（シラバス通りに入力　スペース/英数は半角）</h2>
                 <input type="text" name="lecture[name]" placeholder="早稲田の歴史"/>
                 
                 <!--分野コード-->
@@ -43,7 +43,7 @@
         </form>
     <br>
     <h1>教員を追加</h1>
-        <form action="/posts/store2" method="POST">
+        <form action="/teachers/store" method="POST">
             @csrf
             <div class="teacher">
                 <h2>教員名（スペースなし）</h2>

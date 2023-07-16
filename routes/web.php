@@ -31,13 +31,13 @@ Route::get('/dashboard', function () {
 Route::controller(PostController::class)->middleware(['auth'])->group(function(){
     Route::get('/search', 'search')->name('search');
     Route::get('/posts/create', 'create')->name('create');
-    Route::get('/posts/create/lectures', 'lecture_search')->name('lecture_search');
-    Route::get('/posts/create/post', 'create_post')->name('create_post');
+    Route::get('/posts/lectures', 'create_post')->name('create_post');
+    // Route::get('/posts/lecture2', 'create_post')->name('create_post');
     Route::get('/user/posts', 'my_show')->name('my_show');
     Route::get('/search/post', 'show')->name('show');
     Route::get('/posts/post/edit', 'edit')->name('edit');
-    Route::post('/posts/store', 'store_lecture')->name('store_lecture');
-    Route::post('/posts/store2', 'store_teacher')->name('store_teacher');
+    Route::post('/lectures/store', 'store_lecture')->name('store_lecture');
+    Route::post('/teachers/store', 'store_teacher')->name('store_teacher');
     Route::post('/posts/create/post', 'store_post')->name('store_post');
     Route::put('/posts/{post}', 'update')->name('update');
     Route::delete('/posts/{post}', 'delete')->name('delete');

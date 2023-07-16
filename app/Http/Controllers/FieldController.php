@@ -1,10 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\GradeController;
+use App\Models\Feild;
 use Illuminate\Http\Request;
 
-class GradeController extends Controller
+class FieldController extends Controller
 {
     //
 }

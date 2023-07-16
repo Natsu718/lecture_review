@@ -14,4 +14,8 @@ class Teacher extends Model
     {
         return $this->hasMany(Lecture::class); 
     }
+    
+    protected $fillable = [
+        'name'
+    ];
 }

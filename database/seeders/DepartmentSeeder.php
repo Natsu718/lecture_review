@@ -15,7 +15,10 @@ class DepartmentSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('departments')->insert([
+         DB::table('departments')->insert([
+            'name' => '-学部を選択-',
+         ]);
+         DB::table('departments')->insert([
             'name' => '政経',
          ]);
          

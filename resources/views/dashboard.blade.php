@@ -14,6 +14,8 @@
                     {{ __("Search") }}
                     <br>
                     {{ __("Create") }}
+                    <br>
+                    <a href="https://www.wsl.waseda.jp/syllabus/JAA101.php"target="_blank"><font color="blue">早稲田大学 シラバス検索システム</font></a>
                 </div>
             </div>
         </div>

@@ -52,9 +52,9 @@ class PostController extends Controller
     //     return view('posts.create_post');
     // }
     
-    public function edit(Post $post)
+    public function edit(Post $post,User $user, Lecture $lecture, Field $field, Teacher $teacher, Department $department, Grade $grade)
     {
-        return view('posts.edit');
+        return view('posts.edit')->with(['post'=>$post, 'users'=>Auth::id(),'lectures'=>$lecture,'fields' => $field->get(),'teacheres' => $teacher->get(),'departments' => $department->get(),'grades'=>$grade->get()]);
     }
     
     public function search(Post $post)
@@ -71,7 +71,7 @@ class PostController extends Controller
     
     public function my_show(Post $post)
     {
-        return view('posts.my_show');
+        return view('posts.my_show')->with(['posts'=>$post->get(),'user'=>Auth::id()]);
     }
 
     public function store_lecture(Lecture $lecture, LectureRequest $request) 
@@ -104,6 +104,6 @@ class PostController extends Controller
         $input_post = $request['post'];
         $post->fill($input_post)->save();
     
-        return redirect('/posts/' . $post->id);
+        return redirect('/user/posts');
     }
 }

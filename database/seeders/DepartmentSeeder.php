@@ -138,15 +138,15 @@ class DepartmentSeeder extends Seeder
          ]);
         
         DB::table('departments')->insert([
-            'name' => '基幹',
+            'name' => '基幹研',
          ]);
          
          DB::table('departments')->insert([
-            'name' => '創造',
+            'name' => '創造研',
          ]);
          
          DB::table('departments')->insert([
-            'name' => '先進',
+            'name' => '先進研',
          ]);
          
          DB::table('departments')->insert([

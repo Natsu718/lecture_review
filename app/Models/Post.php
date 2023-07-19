@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Grade_Post;
 use App\Models\User;
-use App\Models\lecture;
+use App\Models\Lecture;
 
 class Post extends Model
 {

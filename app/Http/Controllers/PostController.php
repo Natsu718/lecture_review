@@ -42,7 +42,6 @@ class PostController extends Controller
     
     public function create_post2(User $user, Lecture $lecture, Field $field, Teacher $teacher, Department $department, Grade $grade)
     {
-        // dd($lecture);
         return view('posts.create_post2')->with(['user'=>$user->get(),'lecture'=>$lecture,'fields' => $field->get(),'teacheres' => $teacher->get(),'departments' => $department->get(),'grades'=>$grade->get()]);
         
     }
@@ -90,10 +89,11 @@ class PostController extends Controller
         return redirect('/posts/create');
     }
     
-    public function store_post(Post $post, PostRequest $request) 
+    public function store_post(Post $post, PostRequest $request, Lecture $lecture) 
     {
         $input = $request['post'];
         $input['user_id']=Auth::id();
+        $input['lecture_id']=$lecture->id;
         
         $post->fill($input)->save();
         return redirect('/posts/lectures');

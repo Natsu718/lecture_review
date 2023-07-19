@@ -25,7 +25,14 @@ class Post extends Model
     
     public function grade_post()   
     {
-        return $this->hasMany(Grade_Post::class);
+        return $this->hasMany(Grade_Post::class);  
     }
     
+    protected $fillable = [
+        'user_id',
+        'lecture_id',
+        'comment',
+        'grade_id',
+        'review',
+    ];
 }

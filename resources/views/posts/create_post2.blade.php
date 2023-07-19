@@ -28,17 +28,10 @@
               <td>{{ $lecture->department->name }}</td>
             </tr>
             <th><x-input-label for="grade" :value="__('成績評価方法')" /></th>
-                {{--<td><select class="block mt-1 w-full" name="post[grade_id]">
-                    @foreach($grades as $grade)
-                        <option value="{{ $grade->id }}">{{ $grade->name }}</option>
-                    @endforeach
-                </select>
-                <x-input-error :messages="$errors->get('grade')" class="mt-2" /></td>
-                --}}
                 <td>
                   @foreach($grades as $grade)
                   <label>{{ $grade->name }}
-                    <input type='checkbox' name='checkbox' value='{{ $grade->id }}'/>
+                    <input type='checkbox' name='post[grade_id]' value='{{ $grade->id }}'/>
                   </label>
                   @endforeach
                 </td>
@@ -50,7 +43,7 @@
             </tr>
             <tr>
               <th>おすすめ度</th>
-              <td><textarea name="post[review]"  type="number" placeholder="1~5で評価"></textarea></td>
+              <td><input name="post[review]"  type="number" min="1" max="5"/></td>
             </tr>
             
             <tr>

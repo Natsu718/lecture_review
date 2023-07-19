@@ -4,5 +4,7 @@
             {{ __('Show') }} 
         </h2>
     </x-slot>
+    
+
 
 </x-app-layout>

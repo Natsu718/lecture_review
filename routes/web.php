@@ -35,7 +35,7 @@ Route::controller(PostController::class)->middleware(['auth'])->group(function()
     Route::get('/posts/{lecture}', 'create_post2')->name('create_post2');
     Route::get('/user/posts', 'my_show')->name('my_show');
     Route::get('/search/post', 'show')->name('show');
-    Route::get('/posts/post/edit', 'edit')->name('edit');
+    Route::get('/posts/{post}/edit', 'edit')->name('edit');
     Route::post('/lectures/store', 'store_lecture')->name('store_lecture');
     Route::post('/teachers/store', 'store_teacher')->name('store_teacher');
     Route::post('/posts/{lecture}', 'store_post')->name('store_post');

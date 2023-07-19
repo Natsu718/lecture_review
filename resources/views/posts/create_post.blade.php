@@ -16,11 +16,14 @@
           <tr>
             <th>教科名</th><th>教員名</th><th>分野コード</th><th>学部</th>
           </tr>
-        
+          
           @forelse ($lectures as $lecture)
             <tr>
-              <td><a href="/posts/lectures">{{ $lecture->name }}</td></a>
-              <td>{{ $lecture->teacher->name }}</td><td>{{ $lecture->field->name }}</td><td>{{ $lecture->department->name }}</td>
+              </a>
+              <td><a href="/posts/{{ $lecture->id }}">{{ $lecture->name }}</a></td>
+              <td><a href="/posts/{{ $lecture->id }}">{{ $lecture->teacher->name }}</a></td>
+              <td><a href="/posts/{{ $lecture->id }}">{{ $lecture->field->name }}</a></td>
+              <td><a href="/posts/{{ $lecture->id }}">{{ $lecture->department->name }}</a></td>
             </tr>
           @empty
             <td>講義が見つかりません</td>

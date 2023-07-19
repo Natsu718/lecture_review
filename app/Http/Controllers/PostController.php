@@ -1,15 +1,20 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\User;
 use App\Models\Post;
 use App\Models\Field;
 use App\Models\Teacher;
 use App\Models\Department;
+use App\Models\Grade;
 use Illuminate\Http\Request;
 use App\Models\Lecture;
+use App\Http\Requests\UserRequest;
 use App\Http\Requests\LectureRequest;
 use App\Http\Requests\TeacherRequest;
 use App\Http\Requests\PostRequest;
+use App\Http\Requests\GradeRequest;
+use Auth;
 
 class PostController extends Controller
 {
@@ -21,7 +26,7 @@ class PostController extends Controller
     }
     
     
-     public function create_post(Lecture $lecture, Request $request)
+    public function create_post(Lecture $lecture, Request $request)
     {
         $keyword = $request->input('keyword');
 
@@ -32,10 +37,15 @@ class PostController extends Controller
         }
 
         $lectures = $query->get();
-        // dd($keyword);
         return view('posts.create_post', compact('lectures','keyword'));
     }
     
+    public function create_post2(User $user, Lecture $lecture, Field $field, Teacher $teacher, Department $department, Grade $grade)
+    {
+        // dd($lecture);
+        return view('posts.create_post2')->with(['user'=>$user->get(),'lecture'=>$lecture,'fields' => $field->get(),'teacheres' => $teacher->get(),'departments' => $department->get(),'grades'=>$grade->get()]);
+        
+    }
     
     
     // public function create_post()
@@ -83,8 +93,10 @@ class PostController extends Controller
     public function store_post(Post $post, PostRequest $request) 
     {
         $input = $request['post'];
+        $input['user_id']=Auth::id();
+        
         $post->fill($input)->save();
-        return redirect('/posts/create/post' . $post->id);
+        return redirect('/posts/lectures');
     }
     
     public function update(PostRequest $request, Post $post)

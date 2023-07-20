@@ -15,23 +15,18 @@
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
+                        {{ __('早稲田シラバス') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('create')" :active="request()->routeIs('create')">
-                        {{ __('Create') }}
-                    </x-nav-link>
+                    <x-nav-link :href="route('search')" :active="request()->routeIs('search')">
+                        {{ __('レビュー検索') }}
+                    </x-nav-link> 
+
                     <x-nav-link :href="route('create_post')" :active="request()->routeIs('create_post')">
-                        {{ __('Create_Post') }}
+                        {{ __('レビュー作成') }}
                     </x-nav-link>
                     <x-nav-link :href="route('my_show')" :active="request()->routeIs('my_show')">
-                        {{ __('My_Show') }}
+                        {{ __('投稿したレビュー一覧') }}
                     </x-nav-link> 
-                    <x-nav-link :href="route('search')" :active="request()->routeIs('search')">
-                        {{ __('Search') }}
-                    </x-nav-link> 
-                    <x-nav-link :href="route('show')" :active="request()->routeIs('show')">
-                        {{ __('Show') }}
-                    </x-nav-link>
                     
                 </div>
             </div>

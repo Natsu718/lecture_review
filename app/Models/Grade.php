@@ -10,8 +10,8 @@ class Grade extends Model
 {
     use HasFactory;
     
-    public function grade_post()   
+    public function posts()   
     {
-        return $this->hasMany(Grade_Post::class);  
+        return $this->hasMany(Post::class); 
     }
 }

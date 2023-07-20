@@ -1,11 +1,7 @@
 <x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Create_Post') }} 
-        </h2>
-    </x-slot>
+
         <div>
-          <p>授業名を検索</p>
+          <h1>授業を選択</h1>
           <form action="/posts/lectures" method="GET">
             <input type="text" name="keyword" value="{{ $keyword }}">
             <input type="submit" value="検索">
@@ -19,16 +15,17 @@
           
           @forelse ($lectures as $lecture)
             <tr>
-              </a>
-              <td><a href="/posts/{{ $lecture->id }}">{{ $lecture->name }}</a></td>
-              <td><a href="/posts/{{ $lecture->id }}">{{ $lecture->teacher->name }}</a></td>
-              <td><a href="/posts/{{ $lecture->id }}">{{ $lecture->field->name }}</a></td>
-              <td><a href="/posts/{{ $lecture->id }}">{{ $lecture->department->name }}</a></td>
+              </a><td width="200" align="center"><a href="/posts/{{ $lecture->id }}">{{ $lecture->name }}</a></td>
+              <td width="150" align="center">{{ $lecture->teacher->name }}</a></td>
+              <td width="150" align="center">{{ $lecture->field->name }}</a></td>
+              <td width="80"  align="center">{{ $lecture->department->name }}</a></td>
             </tr>
           @empty
             <td>講義が見つかりません</td>
           @endforelse
         </table>
+        <br>
+        <h4>見つからない時は<a href='/posts/create'>授業を作成</a></h4><br>
         <div class="footer">
             <a href="/dashboard">戻る</a>
         </div>

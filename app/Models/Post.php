@@ -23,9 +23,9 @@ class Post extends Model
         return $this->belongsTo(Lecture::class);
     }
     
-    public function grade_post()   
+    public function grade()   
     {
-        return $this->hasMany(Grade_Post::class);  
+        return $this->belongsTo(Grade::class);  
     }
     
     protected $fillable = [

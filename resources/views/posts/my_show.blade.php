@@ -14,17 +14,23 @@
                 <td width="100"  align="center">{{ $post->grade->name}}</td>
                 <td width="300"  align="center">{{ $post->comment }}</td>
                 <td width="80"  align="center">{{ $post->review }}</td>
+                <td><a href="/posts/{{ $post->id }}/edit">編集</a></td>
+                <td>
+                <form action="/posts/{{ $post->id }}" id="form_{{ $post->id }}" method="post">
+                    @csrf
+                    @method('DELETE')
+                    <button type="button" onclick="deletePost({{ $post->id }})">削除</button> 
+                </form>
+                </td>
             </tr>
-            <div class="edit"><a href="/posts/{{ $post->id }}/edit">編集</a></div>
             
-            <form action="/posts/{{ $post->id }}" id="form_{{ $post->id }}" method="post">
-                @csrf
-                @method('DELETE')
-                <button type="button" onclick="deletePost({{ $post->id }})">delete</button> 
-            </form>
+            
+            
         @endif
         @empty
         <td>講義が見つかりません</td>
-    @endforelse
-        <a href="/dashboard">戻る</a>       
+    @endforelse 
+    <div class="footer">
+            <a href="/dashboard"> <button type="button" name="name" value="value">戻る</button></a>
+        </div>    
 </x-app-layout>

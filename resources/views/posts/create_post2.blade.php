@@ -50,7 +50,7 @@
         </form>
         
         <div class="footer">
-            <a href="/dashboard"> <button type="button" name="name" value="value">戻る</button></a>
+            <a href="/posts/lectures"> <button type="button" name="name" value="value">戻る</button></a>
         </div>
 
 </x-app-layout>

@@ -7,10 +7,8 @@ use App\Models\Field;
 use App\Models\Teacher;
 use App\Models\Department;
 use App\Models\Grade;
-use App\Models\Grade_Post;
 use Illuminate\Http\Request;
 use App\Models\Lecture;
-use App\Http\Requests\Grade_PostRequest;
 use App\Http\Requests\UserRequest;
 use App\Http\Requests\LectureRequest;
 use App\Http\Requests\TeacherRequest;
@@ -42,17 +40,29 @@ class PostController extends Controller
         return view('posts.create_post', compact('lectures','keyword'));
     }
     
+    
+    public function show(Post $post, Lecture $lecture, Request $request)
+    {
+        $keyword = $request->input('keyword');
+        // dd($keyword);
+        $posts=[];
+        if(!empty($keyword)){
+            $posts = Post::whereIn('lecture_id', function ($query) use ($request,$keyword) {
+                $query->from('lectures')
+                    ->select('id')
+                    ->where('name', 'LIKE', "%{$keyword}%", $request->id);
+            })->get();
+        }
+        return view('posts.show', compact('posts','keyword'));
+    }
+    
+    
     public function create_post2(User $user, Lecture $lecture, Field $field, Teacher $teacher, Department $department, Grade $grade)
     {
         return view('posts.create_post2')->with(['user'=>$user->get(),'lecture'=>$lecture,'fields' => $field->get(),'teacheres' => $teacher->get(),'departments' => $department->get(),'grades'=>$grade->get()]);
         
     }
-    
-    
-    // public function create_post()
-    // {
-    //     return view('posts.create_post');
-    // }
+
     
     public function edit(Post $post,User $user, Lecture $lecture, Field $field, Teacher $teacher, Department $department, Grade $grade)
     {
@@ -64,12 +74,6 @@ class PostController extends Controller
         return view('posts.search');
     }
 
-    
-
-    public function show(Post $post)
-    {
-        return view('posts.show');
-    }
     
     public function my_show(Post $post)
     {
@@ -108,4 +112,10 @@ class PostController extends Controller
     
         return redirect('/user/posts');
     }
+    
+    public function delete(Post $post)
+    {
+        $post->delete();
+        return redirect('/user/posts');
+}
 }

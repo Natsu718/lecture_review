@@ -71,6 +71,6 @@
     </form>
     
         <div class="footer">
-            <a href="/dashboard">戻る</a>
+            <a href="/posts/lectures">戻る</a>
         </div>
 </x-app-layout>

@@ -50,4 +50,7 @@
           </table>
         </form>
     </div>
+    <div class="footer">
+      <a href="/user/posts">戻る</a>
+    </div>
 </x-app-layout>

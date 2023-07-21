@@ -17,7 +17,7 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('早稲田シラバス') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('search')" :active="request()->routeIs('search')">
+                    <x-nav-link :href="route('show')" :active="request()->routeIs('show')">
                         {{ __('レビュー検索') }}
                     </x-nav-link> 
 

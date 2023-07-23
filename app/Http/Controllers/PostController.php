@@ -41,19 +41,37 @@ class PostController extends Controller
     }
     
     
-    public function show(Post $post, Lecture $lecture, Request $request)
+    public function show(Post $post, Lecture $lecture, Request $request, Field $field)
     {
         $keyword = $request->input('keyword');
-        // dd($keyword);
+        $field_id = $request->input('field_id');
+       
         $posts=[];
-        if(!empty($keyword)){
-            $posts = Post::whereIn('lecture_id', function ($query) use ($request,$keyword) {
+        if(!empty($keyword) && $field_id != 1){
+            
+            $posts = Post::whereIn('lecture_id', function ($query) use ($request,$keyword,$field_id) {
+                $query->from('lectures')
+                    ->select('id')
+                    ->where('name', 'LIKE', "%{$keyword}%", 'AND','field_id','=', $field_id, $request->id);
+            })->get();
+            
+        } elseif(!empty($keyword) && $field_id == 1) {
+        
+           $posts = Post::whereIn('lecture_id', function ($query) use ($request,$keyword) {
                 $query->from('lectures')
                     ->select('id')
                     ->where('name', 'LIKE', "%{$keyword}%", $request->id);
             })->get();
+            
+        } elseif(empty($keyword) && $field_id != 1) {
+
+            $posts = Post::whereIn('lecture_id', function ($query) use ($request,$field_id) {
+                $query->from('lectures')
+                    ->select('id')
+                    ->where('field_id','=', $field_id,$request->id);
+            })->get();
         }
-        return view('posts.show', compact('posts','keyword'));
+        return view('posts.show', compact('posts','keyword','field_id'))->with(['fields' => $field->get()]);
     }
     
     

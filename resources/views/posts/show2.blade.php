@@ -1,19 +1,18 @@
 <x-app-layout>
-    
     <div>
       <h1>授業を検索</h1>
       <form action="/search/post" method="GET">
         <table>
           @csrf
-          <tr><input type="text" name="keyword" value="{{ $keyword }}"></tr>
+          <tr><input type="text" name="keyword" value="{{ $keyword }}" placeholder="科目名入力"></tr>
           <tr>
-            <th><x-input-label for="field" :value="__('分野コードを選択')" /></th>
-            <td><select class="block mt-1 w-full" name="field_id">
-                @foreach($fields as $field)
-                  <option value="{{ $field->id }}">{{ $field->name }}</option>
+            <th><x-input-label for="department"/></th>
+            <td><select class="block mt-1 w-full" name="department_id">
+                @foreach($departments as $department)
+                  <option value="{{ $department->id }}">{{ $department->name }}</option>
                 @endforeach
             </select>
-            <x-input-error :messages="$errors->get('field')" class="mt-2" /></td>
+            <x-input-error :messages="$errors->get('department')" class="mt-2" /></td>
           </tr>
           <input type="submit" value="検索">
         </table>
@@ -46,5 +45,5 @@
         @empty
         <td>講義が見つかりません</td>
     @endforelse
-      
+    
 </x-app-layout>

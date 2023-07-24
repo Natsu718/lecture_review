@@ -23,7 +23,7 @@
         <br>
         <table>
           <tr>
-            <th width="200" align="center">教科名</th>
+            <th width="300" align="center">教科名</th>
             <th width="150" align="center">教員名</th>
             <th width="150" align="center">分野コード</th>
             <th width="80" align="center">学部</th>

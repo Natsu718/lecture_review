@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\Grade_Post;
 use App\Models\User;
 use App\Models\Lecture;
+use App\Models\Department;
 
 class Post extends Model
 {

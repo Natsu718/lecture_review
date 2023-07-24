@@ -4,12 +4,12 @@
 
         
         <div class="flex justify-between h-16">
-            <div class="flex" ;background:#B94047>
+            <div class="sm:flex">
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('dashboard') }}" >
                         <!--<x-application-logo class="block h-9 w-auto fill-current text-gray-800" />-->
-                        <img src="{{ asset('/img/WasedaLogo.jpg') }}" style="width:50px; height:auto;">
+                        <img src="{{ asset('/img/wase.jpg') }}" style="width:80px; height:auto;">
                     </a>
                 </div>
 
@@ -55,7 +55,6 @@
                         <!-- Authentication -->
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
-
                             <x-dropdown-link :href="route('logout')"
                                     onclick="event.preventDefault();
                                                 this.closest('form').submit();">

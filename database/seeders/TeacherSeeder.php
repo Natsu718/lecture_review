@@ -18,8 +18,26 @@ class TeacherSeeder extends Seeder
     {
          DB::table('teachers')->insert([
             'name' => '-教員を選択-',
-            'created_at' => new DateTime(),
-            'updated_at' => new DateTime(),
+         ]);
+         
+         DB::table('teachers')->insert([
+            'name' => '井上淳',
+         ]);
+         
+         DB::table('teachers')->insert([
+            'name' => '村井翔',
+         ]);
+         
+         DB::table('teachers')->insert([
+            'name' => '福川康之',
+         ]);
+         
+         DB::table('teachers')->insert([
+            'name' => '梁松',
+         ]);
+         
+         DB::table('teachers')->insert([
+            'name' => '駒野雄一',
          ]);
     }
 }

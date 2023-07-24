@@ -1,5 +1,5 @@
 <x-app-layout>
-
+    <h1>投稿一覧</h1>
     <table>
           <tr>
             <th width="200" align="center">科目名</th>

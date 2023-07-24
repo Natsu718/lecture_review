@@ -184,7 +184,7 @@ class FieldSeeder extends Seeder
         ]);
         
         DB::table('fields')->insert([
-            'name' => 'DE：建築学',
+            'name' => 'ADE：建築学',
         ]);
         
         DB::table('fields')->insert([

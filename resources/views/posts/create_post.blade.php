@@ -3,14 +3,27 @@
         <div>
           <h1>授業を選択</h1>
           <form action="/posts/lectures" method="GET">
-            <input type="text" name="keyword" value="{{ $keyword }}">
-            <input type="submit" value="検索">
+            <table>
+              @csrf
+              <tr><input type="text" name="keyword" value="{{ $keyword }}" placeholder="科目名入力"></tr>
+              <tr>
+                <th><x-input-label for="department"/></th>
+                <td><select class="block mt-1 w-full" name="department_id">
+                    @foreach($departments as $department)
+                      <option value="{{ $department->id }}">{{ $department->name }}</option>
+                    @endforeach
+                </select>
+                <x-input-error :messages="$errors->get('department')" class="mt-2" /></td>
+              </tr>
+              <input type="submit" value="検索">
+            </table>
+      
           </form>
         </div>
         <br>
         <table>
           <tr>
-            <th width="200" align="center">教科名</th>
+            <th width="300" align="center">教科名</th>
             <th width="150" align="center">教員名</th>
             <th width="150" align="center">分野コード</th>
             <th width="80" align="center">学部</th>

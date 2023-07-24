@@ -14,6 +14,7 @@ use App\Http\Requests\LectureRequest;
 use App\Http\Requests\TeacherRequest;
 use App\Http\Requests\PostRequest;
 use App\Http\Requests\GradeRequest;
+use App\Http\Requests\DepartmentRequest;
 use Auth;
 
 class PostController extends Controller
@@ -26,34 +27,60 @@ class PostController extends Controller
     }
     
     
-    public function create_post(Lecture $lecture, Request $request)
+    public function create_post(Lecture $lecture, Request $request,Department $department)
     {
         $keyword = $request->input('keyword');
-
+        $department_id = $request->input('department_id');
+        
         $query = Lecture::query();
 
-        if(!empty($keyword)) {
-            $query->where('name', 'LIKE', "%{$keyword}%");
+        if(!empty($keyword)&& $department_id != 1) {
+            $query->where('name', 'LIKE', "%{$keyword}%", 'AND','department_id','=', $department_id);
+        } elseif(!empty($keyword) && $department_id == 1) {
+            $query->where('name', 'LIKE', "%{$keyword}%");   
+        } elseif (empty($keyword) && $department_id != 1){
+            $query->where('department_id','=', $department_id);
         }
+        
 
         $lectures = $query->get();
-        return view('posts.create_post', compact('lectures','keyword'));
+        return view('posts.create_post', compact('lectures','keyword','department_id'))->with(['departments' => $department->get()]);
     }
     
     
-    public function show(Post $post, Lecture $lecture, Request $request)
+    public function show(Post $post, Lecture $lecture, Request $request, Department $department)
     {
         $keyword = $request->input('keyword');
-        // dd($keyword);
+        $department_id = $request->input('department_id');
+       
+       $query = Post::query();
+       
         $posts=[];
-        if(!empty($keyword)){
-            $posts = Post::whereIn('lecture_id', function ($query) use ($request,$keyword) {
+        if(!empty($keyword) && $department_id != 1){
+            
+            $posts = Post::whereIn('lecture_id', function ($query) use ($request,$keyword,$department_id) {
+                $query->from('lectures')
+                    ->select('id')
+                    ->where('name', 'LIKE', "%{$keyword}%", 'AND','department_id','=', $field_id, $request->id);
+            })->get();
+            
+        } elseif(!empty($keyword) && $department_id == 1) {
+        
+           $posts = Post::whereIn('lecture_id', function ($query) use ($request,$keyword) {
                 $query->from('lectures')
                     ->select('id')
                     ->where('name', 'LIKE', "%{$keyword}%", $request->id);
             })->get();
+            
+        } elseif(empty($keyword) && $department_id != 1) {
+
+            $posts = Post::whereIn('lecture_id', function ($query) use ($request,$department_id) {
+                $query->from('lectures')
+                    ->select('id')
+                    ->where('department_id','=', $department_id,$request->id);
+            })->get();
         }
-        return view('posts.show', compact('posts','keyword'));
+        return view('posts.show', compact('posts','keyword','department_id'))->with(['departments' => $department->get()]);
     }
     
     

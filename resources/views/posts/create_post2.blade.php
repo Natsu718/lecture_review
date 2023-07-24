@@ -1,5 +1,5 @@
 <x-app-layout>
-
+  <h1>レビュー登録</h1>
         <!--レビュー登録-->
         <form action="/posts/{{$lecture->id}}" method="POST">
           @csrf

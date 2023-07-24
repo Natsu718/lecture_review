@@ -1,5 +1,5 @@
 <x-app-layout>
-
+    <h1>投稿一覧</h1>
     <table>
           <tr>
             <th width="200" align="center">科目名</th>
@@ -20,8 +20,9 @@
                 <td width="100"  align="center">{{ $post->grade->name}}</td>
                 <td width="300"  align="left">{{ $post->comment }}</td>
                 <td width="80"  align="center">{{ $post->review }}</td>
-                <td width="40"  align="center"><a href="/posts/{{ $post->id }}/edit">編集</a></td>
-                <td width="40"  align="center">
+                <td width="80"  align="center">
+                <a href="/posts/{{ $post->id }}/edit" class=edit>編集</a></td>
+                <td width="80"  align="center">
                 <form action="/posts/{{ $post->id }}" id="form_{{ $post->id }}" method="post">
                     @csrf
                     @method('DELETE')

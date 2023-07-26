@@ -43,7 +43,7 @@
                   </tr>
                   <tr>
                     <th>おすすめ度</th>
-                    <td><input name="post[review]"  type="number" min="1" max="5"/>{{ $post->review }}</td>
+                    <td>{{ $post->review }}</td>
                   </tr>
                   
                   <tr>

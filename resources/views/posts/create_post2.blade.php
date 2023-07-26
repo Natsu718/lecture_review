@@ -1,5 +1,6 @@
 <x-app-layout>
-  <h1>レビュー登録</h1>
+  <div class="p-6">
+  <h1>　レビュー登録</h1>
         <!--レビュー登録-->
         <form action="/posts/{{$lecture->id}}" method="POST">
           @csrf
@@ -52,6 +53,6 @@
         <div class="footer">
             <a href="/posts/lectures"> <button type="button" name="name" value="value">戻る</button></a>
         </div>
-
+  </div>
 </x-app-layout>
 

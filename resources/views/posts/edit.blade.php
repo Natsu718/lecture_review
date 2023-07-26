@@ -1,5 +1,6 @@
 <x-app-layout>
-
+  <div class="p-6">
+    <h1>　編集</h1>
     <div class="content">
         <form action="/posts/{{$post->id}}" method="POST">
             @csrf
@@ -53,4 +54,5 @@
     <div class="footer">
       <a href="/user/posts">戻る</a>
     </div>
+  </div>
 </x-app-layout>

@@ -41,14 +41,31 @@ class PostController extends Controller
         } elseif (empty($keyword) && $department_id != 1){
             $query->where('department_id','=', $department_id);
         }
-        
-
+    
         $lectures = $query->get();
         return view('posts.create_post', compact('lectures','keyword','department_id'))->with(['departments' => $department->get()]);
     }
     
+    public function show(Lecture $lecture, Request $request,Department $department)
+    {
+        $keyword = $request->input('keyword');
+        $department_id = $request->input('department_id');
+        
+        $query = Lecture::query();
+
+        if(!empty($keyword)&& $department_id != 1) {
+            $query->where('name', 'LIKE', "%{$keyword}%", 'AND','department_id','=', $department_id);
+        } elseif(!empty($keyword) && $department_id == 1) {
+            $query->where('name', 'LIKE', "%{$keyword}%");   
+        } elseif (empty($keyword) && $department_id != 1){
+            $query->where('department_id','=', $department_id);
+        }
     
-    public function show(Post $post, Lecture $lecture, Request $request, Department $department)
+        $lectures = $query->get();
+        return view('posts.show', compact('lectures','keyword','department_id'))->with(['departments' => $department->get()]);
+    }
+    
+    public function show2(Post $post, Lecture $lecture, Request $request, Department $department)
     {
         $keyword = $request->input('keyword');
         $department_id = $request->input('department_id');
@@ -109,7 +126,6 @@ class PostController extends Controller
 
     public function store_lecture(Lecture $lecture, LectureRequest $request) 
     {
-        
         $input = $request['lecture'];
         $lecture->fill($input)->save();
         return redirect('/posts/create');
@@ -144,5 +160,5 @@ class PostController extends Controller
     {
         $post->delete();
         return redirect('/user/posts');
-}
+    }
 }

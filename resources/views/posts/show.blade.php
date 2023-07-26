@@ -43,7 +43,7 @@
                       <td width="100" align="center">{{ $lecture->review }}</td>
                   </tr>
               @empty
-              <td>講義が見つかりません</td>
+              <td width="200">講義が見つかりません</td>
               @endforelse
             </table>
       </div>

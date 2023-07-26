@@ -53,11 +53,11 @@ class PostController extends Controller
         $keyword = $request->input('keyword');
         $department_id = $request->input('department_id');
         $query = Lecture::query();
-        if(!empty($keyword)&& $department_id != 1) {
+        if(!empty($keyword)&& $department_id != null) {
             $query->where('name', 'LIKE', "%{$keyword}%", 'AND','department_id','=', $department_id);
-        } elseif(!empty($keyword) && $department_id == 1) {
+        } elseif(!empty($keyword) && $department_id == null) {
             $query->where('name', 'LIKE', "%{$keyword}%");   
-        } elseif (empty($keyword) && $department_id != 1){
+        } elseif (empty($keyword) && $department_id != null){
             $query->where('department_id','=', $department_id);
         }
         $lectures = $query->get();

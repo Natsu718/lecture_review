@@ -1,4 +1,7 @@
 <x-app-layout>
+  <x-slot name="show2">
+    Header
+  </x-slot>
   <div class="p-6">
     <h1> {{ $lecture->name }}</h1>
     <div class="py-12">
@@ -19,13 +22,18 @@
               @if($lecture->id == $post->lecture_id)
               <tr>
                   <td width="50" align="center"><img src="{{ asset('/img/search.jpg') }}" style="width:70px; height:auto;"></td>
-                  <td width="100" align="center">{{ $post->grade->name}}</td>
+                  <td width="100"  align="center">
+                      @foreach($post->grades as $grade)
+                          <p>{{ $grade->name }}</p>
+                      @endforeach
+                  </td>
                   <td width="300" align="left">{{ $post->comment }}</td>
                   <td width="80" align="center">{{ $post->review }}</td>
               </tr>
               @endif
             @empty
-              <td>レビューが見つかりません</td>
+            <td width="50" align="center"><img src="{{ asset('/img/search.jpg') }}" style="width:70px; height:auto;"></td>
+            <td width="200">　レビューが見つかりません</td>
             @endforelse
             </table>
           </div>

@@ -28,8 +28,8 @@
                                 @foreach($post->grades as $grade)
                                     <p>{{ $grade->name }}</p>
                                 @endforeach
-                                
                             </td>
+                            
                             <td width="300"  align="left">{{ $post->comment }}</td>
                             <td width="80"  align="center">{{ $post->review }}</td>
                             <td width="80"  align="center">
@@ -44,7 +44,8 @@
                         </tr>
                     @endif
                     @empty
-                    <td>講義が見つかりません</td>
+                    <td width="50" align="center"><img src="{{ asset('/img/my_show.jpg') }}" style="width:70px; height:auto;"></td>
+                    <td width="200">講義が見つかりません</td>
                 @endforelse 
                     <script>
                         function deletePost(id) {

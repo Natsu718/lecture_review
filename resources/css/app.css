@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+.create_lecture{
+    @apply inline-block rounded border border-gray-900 bg-gray-900 px-12 py-3 text-sm font-medium text-white hover:bg-transparent hover:text-gray-900 focus:outline-none focus:ring active:text-gray-700;
+}
 
 
 h1{

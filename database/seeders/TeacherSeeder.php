@@ -14,11 +14,8 @@ class TeacherSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
-    {
-         DB::table('teachers')->insert([
-            'name' => '-教員を選択-',
-         ]);
+    public function run(){
+    
          
          DB::table('teachers')->insert([
             'name' => '井上淳',

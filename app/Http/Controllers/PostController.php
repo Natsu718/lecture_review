@@ -19,6 +19,10 @@ use Auth;
 
 class PostController extends Controller
 {
+    public function top()
+    {
+        return view('dashboard');
+    }
     
     public function create(Field $field, Teacher $teacher, Department $department)
     {
@@ -31,28 +35,24 @@ class PostController extends Controller
     {
         $keyword = $request->input('keyword');
         $department_id = $request->input('department_id');
-        
         $query = Lecture::query();
-
-        if(!empty($keyword)&& $department_id != 1) {
+        if(!empty($keyword)&& $department_id != null) {
             $query->where('name', 'LIKE', "%{$keyword}%", 'AND','department_id','=', $department_id);
-        } elseif(!empty($keyword) && $department_id == 1) {
+        } elseif(!empty($keyword) && $department_id == null) {
             $query->where('name', 'LIKE', "%{$keyword}%");   
-        } elseif (empty($keyword) && $department_id != 1){
+        } elseif (empty($keyword) && $department_id != null){
             $query->where('department_id','=', $department_id);
-        }
-    
+        } 
         $lectures = $query->get();
         return view('posts.create_post', compact('lectures','keyword','department_id'))->with(['departments' => $department->get()]);
     }
-    
+
+
     public function show(Lecture $lecture, Request $request,Department $department)
     {
         $keyword = $request->input('keyword');
         $department_id = $request->input('department_id');
-        
         $query = Lecture::query();
-
         if(!empty($keyword)&& $department_id != 1) {
             $query->where('name', 'LIKE', "%{$keyword}%", 'AND','department_id','=', $department_id);
         } elseif(!empty($keyword) && $department_id == 1) {
@@ -60,51 +60,19 @@ class PostController extends Controller
         } elseif (empty($keyword) && $department_id != 1){
             $query->where('department_id','=', $department_id);
         }
-    
         $lectures = $query->get();
         return view('posts.show', compact('lectures','keyword','department_id'))->with(['departments' => $department->get()]);
     }
     
     public function show2(Post $post, Lecture $lecture, Request $request, Department $department)
     {
-        $keyword = $request->input('keyword');
-        $department_id = $request->input('department_id');
-       
-       $query = Post::query();
-       
-        $posts=[];
-        if(!empty($keyword) && $department_id != 1){
-            
-            $posts = Post::whereIn('lecture_id', function ($query) use ($request,$keyword,$department_id) {
-                $query->from('lectures')
-                    ->select('id')
-                    ->where('name', 'LIKE', "%{$keyword}%", 'AND','department_id','=', $field_id, $request->id);
-            })->get();
-            
-        } elseif(!empty($keyword) && $department_id == 1) {
-        
-           $posts = Post::whereIn('lecture_id', function ($query) use ($request,$keyword) {
-                $query->from('lectures')
-                    ->select('id')
-                    ->where('name', 'LIKE', "%{$keyword}%", $request->id);
-            })->get();
-            
-        } elseif(empty($keyword) && $department_id != 1) {
-
-            $posts = Post::whereIn('lecture_id', function ($query) use ($request,$department_id) {
-                $query->from('lectures')
-                    ->select('id')
-                    ->where('department_id','=', $department_id,$request->id);
-            })->get();
-        }
-        return view('posts.show', compact('posts','keyword','department_id'))->with(['departments' => $department->get()]);
+        return view('posts.show2')->with(['posts'=>$post->get(),'lecture'=>$lecture]);
     }
     
     
     public function create_post2(User $user, Lecture $lecture, Field $field, Teacher $teacher, Department $department, Grade $grade)
     {
         return view('posts.create_post2')->with(['user'=>$user->get(),'lecture'=>$lecture,'fields' => $field->get(),'teacheres' => $teacher->get(),'departments' => $department->get(),'grades'=>$grade->get()]);
-        
     }
 
     
@@ -112,16 +80,11 @@ class PostController extends Controller
     {
         return view('posts.edit')->with(['post'=>$post, 'users'=>Auth::id(),'lectures'=>$lecture,'fields' => $field->get(),'teacheres' => $teacher->get(),'departments' => $department->get(),'grades'=>$grade->get()]);
     }
-    
-    public function search(Post $post)
-    {
-        return view('posts.search');
-    }
 
-    
+
     public function my_show(Post $post)
-    {
-        return view('posts.my_show')->with(['posts'=>$post->get(),'user'=>Auth::id()]);
+    { 
+        return view('posts.my_show')->with(['posts'=>$post->get(),'user'=>Auth::id()]); 
     }
 
     public function store_lecture(Lecture $lecture, LectureRequest $request) 
@@ -145,6 +108,10 @@ class PostController extends Controller
         $input['lecture_id']=$lecture->id;
         
         $post->fill($input)->save();
+        $post->grades()->attach($request->grade_id);
+        
+        $lecture->review = round($post->where('lecture_id',$lecture->id)->avg('review'),1);
+        $lecture->save();
         return redirect('/posts/lectures');
     }
     
@@ -152,7 +119,6 @@ class PostController extends Controller
     {
         $input_post = $request['post'];
         $post->fill($input_post)->save();
-    
         return redirect('/user/posts');
     }
     

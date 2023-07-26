@@ -19,17 +19,14 @@ use App\Http\Controllers\ProfileController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+
+
+
 
 
 Route::controller(PostController::class)->middleware(['auth'])->group(function(){
-    Route::get('/search', 'search')->name('search');
+    Route::get('/', 'top')->name('dashboard');
     Route::get('/posts/create', 'create')->name('create');
     Route::get('/posts/lectures', 'create_post')->name('create_post');
     Route::get('/posts/{lecture}', 'create_post2')->name('create_post2');

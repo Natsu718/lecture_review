@@ -19,6 +19,7 @@ return new class extends Migration
             $table->foreignId('field_id')->constrained();
             $table->foreignId('teacher_id')->constrained();
             $table->foreignId('department_id')->constrained();
+            $table->float('review')->default(0);
             $table->timestamps();
             $table->softDeletes();
         });

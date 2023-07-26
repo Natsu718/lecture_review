@@ -6,6 +6,7 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <table>
                       <tr>
+                         <th width="50" align="center">　</th>
                         <th width="200" align="center">科目名</th>
                         <th width="150" align="center">教員名</th>
                         <th width="150" align="center">分野コード</th>
@@ -17,11 +18,18 @@
                 @forelse($posts as $post)
                     @if(Auth::id() == $post->user_id)
                         <tr>
+                            <td width="50" align="center"><img src="{{ asset('/img/my_show.jpg') }}" style="width:70px; height:auto;"></td>
                             </a><td width="200" align="center">{{ $post->lecture->name }}</td>
                             <td width="150" align="center">{{ $post->lecture->teacher->name }}</td>
                             <td width="150" align="center">{{ $post->lecture->field->name }}</td>
                             <td width="80"  align="center">{{ $post->lecture->department->name }}</td>
-                            <td width="100"  align="center">{{ $post->grade->name}}</td>
+                            
+                            <td width="100"  align="center">
+                                @foreach($post->grades as $grade)
+                                    <p>{{ $grade->name }}</p>
+                                @endforeach
+                                
+                            </td>
                             <td width="300"  align="left">{{ $post->comment }}</td>
                             <td width="80"  align="center">{{ $post->review }}</td>
                             <td width="80"  align="center">

@@ -13,6 +13,7 @@
         <div class="mt-4">
             <x-input-label for="department" :value="__('学部を選択')" />
             <select class="block mt-1 w-full" name="department">
+                <option>-学部を選択-</option>
                 @foreach($departments as $department)
                     <option value="{{ $department->id }}">{{ $department->name }}</option>
                 @endforeach

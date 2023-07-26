@@ -22,6 +22,7 @@
                         <tr>
                             <th><x-input-label for="field" :value="__('分野コードを選択')" /></th>
                             <td><select class="block mt-1 w-full" name="lecture[field_id]">
+                                <option>-分野コードを選択-</option>
                                 @foreach($fields as $field)
                                     <option value="{{ $field->id }}">{{ $field->name }}</option>
                                 @endforeach
@@ -32,7 +33,9 @@
                         <!--教員名検索-->
                         <tr>
                             <th><x-input-label for="teacher" :value="__('教員を選択')" /></th>
+                            
                             <td><select class="block mt-1 w-full" name="lecture[teacher_id]">
+                                <option>-教員を選択-</option>
                                 @foreach($teacheres as $teacher)
                                     <option value="{{ $teacher->id }}">{{ $teacher->name }}</option>
                                 @endforeach
@@ -43,6 +46,7 @@
                         </tr>
                             <th><x-input-label for="department" :value="__('学部を選択')" /></th>
                             <td><select class="block mt-1 w-full" name="lecture[department_id]">
+                                <option>-学部を選択-</option>
                                 @foreach($departments as $department)
                                     <option value="{{ $department->id }}">{{ $department->name }}</option>
                                 @endforeach

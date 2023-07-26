@@ -13,6 +13,7 @@
                 <tr>
                   <th><x-input-label for="department"/></th>
                   <td><select class="block mt-1 w-full" name="department_id">
+                      <option>-学部を選択-</option>
                       @foreach($departments as $department)
                         <option value="{{ $department->id }}">{{ $department->name }}</option>
                       @endforeach
@@ -41,11 +42,11 @@
                 <td align="center">{{ $lecture->department->name }}</a></td>
               </tr>
             @empty
-              <td　align="center">講義が見つかりません</td>
+              <td>講義が見つかりません</td>
             @endforelse
           </table>
           <br>
-          <h4>見つからない時は<a href='/posts/create'>授業を作成</a></h4><br>
+          <h4>授業がない場合はこちらをクリック　　<a class=create_lecture href='/posts/create'>授業を作成</a></h4><br>
         </div>
       </div>
     </div>

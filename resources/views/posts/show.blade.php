@@ -13,6 +13,7 @@
                 <tr>
                   <th><x-input-label for="department"/></th>
                   <td><select class="block mt-1 w-full" name="department_id">
+                    <option>-学部を選択-</option>
                       @foreach($departments as $department)
                         <option value="{{ $department->id }}">{{ $department->name }}</option>
                       @endforeach
@@ -26,7 +27,7 @@
           <br>
             <table>      
                 <tr>
-                  <th width="200" align="center" >科目名</th>
+                  <th width="300" align="center" >科目名</th>
                   <th width="150" align="center">教員名</th>
                   <th width="250" align="center">分野コード</th>
                   <th width="80" align="center">学部</th>
@@ -35,11 +36,11 @@
                   
               @forelse($lectures as $lecture)
                   <tr>
-                      <td width="200" align="center"><a href="/search/{{ $lecture->id }}">{{ $lecture->name }}</td>
+                      <td width="300" align="center"><a href="/search/{{ $lecture->id }}">{{ $lecture->name }}</td>
                       <td width="150" align="center">{{ $lecture->teacher->name }}</td>
                       <td width="250" align="center">{{ $lecture->field->name }}</td>
                       <td width="80" align="center">{{ $lecture->department->name }}</td>
-                      <td width="100" align="center">5</td>
+                      <td width="100" align="center">{{ $lecture->review }}</td>
                   </tr>
               @empty
               <td>講義が見つかりません</td>

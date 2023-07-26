@@ -30,7 +30,7 @@
                   <td>
                     @foreach($grades as $grade)
                     <label>{{ $grade->name }}
-                      <input type='checkbox' name='post[grade_id]' value='{{ $grade->id }}'/>
+                      <input type='checkbox' name='grade_id[]' value='{{ $grade->id }}'/>
                     </label>
                     @endforeach
                   </td>

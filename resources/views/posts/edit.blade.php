@@ -39,11 +39,11 @@
                   
                   <tr>
                     <th>コメント</th>
-                    <td><textarea name="post[comment]"  cols="80" rows="8"></textarea></td>
+                    <td><textarea name="post[comment]"  cols="80" rows="8">{{ $post->comment }}</textarea></td>
                   </tr>
                   <tr>
                     <th>おすすめ度</th>
-                    <td><input name="post[review]"  type="number" min="1" max="5"/></td>
+                    <td><input name="post[review]"  type="number" min="1" max="5"/>{{ $post->review }}</td>
                   </tr>
                   
                   <tr>

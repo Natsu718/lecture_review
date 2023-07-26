@@ -15,9 +15,7 @@ class FieldSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('fields')->insert([
-            'name' => '-分野コードを選択-',
-         ]);
+
          
         DB::table('fields')->insert([
             'name' => 'INF：情報学',

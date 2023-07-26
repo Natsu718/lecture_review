@@ -122,9 +122,10 @@ class PostController extends Controller
         return redirect('/user/posts');
     }
     
-    public function delete(Post $post)
+    public function delete(Post $post, Grade $grade)
     {
         $post->delete();
+        
         return redirect('/user/posts');
     }
 }

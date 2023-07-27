@@ -16,7 +16,7 @@
                             </a><td width="200" align="center">{{ $lecture->name }}</td>
                             <td width="80"  align="center">{{ $lecture->department->name }}</td>
                             <td width="80"  align="center">
-                            <form action="/{{ $lecture->id }}" id="form_{{ $lecture->id }}" method="post">
+                            <form action="/lecture/{{ $lecture->id }}" id="form_{{ $lecture->id }}" method="post">
                                 @csrf
                                 @method('DELETE')
                                 <button type="button" onclick="deleteLecture({{ $lecture->id }})">削除</button> 
@@ -50,7 +50,7 @@
                             <td width="50" align="center"><img src="{{ asset('/img/hito.jpg') }}" style="width:70px; height:auto;"></td>
                             <td width="200" align="center">{{ $teacher->name }}</td>
                             <td width="80"  align="center">
-                            <form action="/{{ $teacher->id }}" id="form_{{ $teacher->id }}" method="post">
+                            <form action="/teacher/{{ $teacher->id }}" id="form_{{ $teacher->id }}" method="post">
                                 @csrf
                                 @method('DELETE')
                                 <button type="button" onclick="deleteTeacher({{ $teacher->id }})">削除</button> 

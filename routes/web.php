@@ -41,8 +41,8 @@ Route::controller(PostController::class)->middleware(['auth'])->group(function()
     Route::delete('/posts/{post}', 'delete')->name('delete');
     
     Route::get('/lectures/delete', 'lectures_delete')->name('lectures_delete');
-    Route::delete('/{lecture}', 'lecture_delete')->name('lecture_delete');
-    Route::delete('/{teacher}', 'teacher_delete')->name('teacher_delete');
+    Route::delete('/lecture/{lecture}', 'lecture_delete')->name('lecture_delete');
+    Route::delete('/teacher/{teacher}', 'teacher_delete')->name('teacher_delete');
 });
 
 Route::middleware('auth')->group(function () {

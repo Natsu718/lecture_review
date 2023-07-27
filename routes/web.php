@@ -23,10 +23,10 @@ use App\Http\Controllers\ProfileController;
 
 
 
-
+Route::get('/', [PostController::class, 'top'])->name('dashboard');
 
 Route::controller(PostController::class)->middleware(['auth'])->group(function(){
-    Route::get('/', 'top')->name('dashboard');
+
     Route::get('/posts/create', 'create')->name('create');
     Route::get('/posts/lectures', 'create_post')->name('create_post');
     Route::get('/posts/{lecture}', 'create_post2')->name('create_post2');

@@ -1,4 +1,11 @@
 <x-app-layout>
+
+  <div class="shutter">
+    <img src="img/WLogo.jpg" alt="ロゴ" class="logo"/>
+  </div>
+  <div class="img"></div>
+
+
 <div class="p-6">
     <h1>　シラバス検索</h1>
     

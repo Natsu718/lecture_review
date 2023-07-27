@@ -124,8 +124,11 @@ class PostController extends Controller
     
     public function delete(Post $post, Grade $grade)
     {
+        $post->grades()->detach();
         $post->delete();
-        
+        $lecture=Lecture::where('id', $post->lecture_id)->first();
+        $lecture->review = round($post->where('lecture_id',$lecture->id)->avg('review'),1);
+        $lecture->save();
         return redirect('/user/posts');
     }
 }

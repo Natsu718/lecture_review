@@ -1,21 +1,3 @@
-/*.header-btn a{*/
-/*    padding:10px 20px;*/
-/*    border:2px solid black;*/
-/*    border-radius:5px;*/
-/*    text-decoration: none;*/
-/*    color:black;*/
-/*    font-weight:bold;*/
-/*    margin:0 5px;*/
-/*    transition:.2s;*/
-/*}*/
-
-/*.header-btn a:hover{*/
-/*    transition:.2s;*/
-/*    background-color:black;*/
-/*    color:white;*/
-/*}*/
-
-
 .header-btn {
     color: #fff;
     margin-top:30px;
@@ -33,11 +15,11 @@
 }
 .header-btn:before {
     font-family: FontAwesome;
-    color:#f16;/*アイコンの色*/
+    color:#f16;
     margin-right: 3px;
 }
 a:hover .header-btn {
-    background-color: #e9baca;/*触れたときの背景色*/
+    background-color: #e9baca;
     box-shadow: 0 0px 0 rgb(0, 0, 0, 0.3);
     animation-play-state: paused;
     top: 3px;
@@ -47,6 +29,7 @@ a:hover .header-btn {
     animation: pekopeko 2s infinite;
     box-shadow: 0 3px 0 rgb(0, 0, 0, 0.3);
 }
+
 @keyframes pekopeko {
     0% {
         box-shadow: 0 3px 0 rgb(0, 0, 0, 0.3);

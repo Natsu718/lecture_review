@@ -12,8 +12,9 @@
                         <th width="150" align="center">分野コード</th>
                         <th width="80" align="center">学部</th>
                         <th width="100" align="center">評価方法</th>
+                        <th width="50"></th>
                         <th width="300" align="center">コメント</th>
-                        <th width="80" align="center">おすすめ度</th>
+                        <th width="100" align="center">おすすめ度</th>
                       </tr>
                 @forelse($posts as $post)
                     @if(Auth::id() == $post->user_id)
@@ -29,10 +30,10 @@
                                     <p>{{ $grade->name }}</p>
                                 @endforeach
                             </td>
-                            
+                            <td width="50"></td>
                             <td width="300"  align="left">{{ $post->comment }}</td>
-                            <td width="80"  align="center">{{ $post->review }}</td>
-                            <td width="80"  align="center">
+                            <td width="100"  align="center">{{ $post->review }}</td>
+                            <td width="100"  align="center">
                             <a href="/posts/{{ $post->id }}/edit" class=edit>編集</a></td>
                             <td width="80"  align="center">
                             <form action="/posts/{{ $post->id }}" id="form_{{ $post->id }}" method="post">

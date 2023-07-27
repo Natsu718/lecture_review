@@ -48,6 +48,55 @@ class LectureSeeder extends Seeder
             'teacher_id' =>5,
             'department_id' =>3,
         ]);
+        
+        DB::table('lectures')->insert([
+            'name' => '会計学',
+            'field_id' => 19,
+            'teacher_id' => 6,
+            'department_id' => 5,
+        ]);
+         
+        DB::table('lectures')->insert([
+            'name' => '会計監査論',
+            'field_id' =>19,
+            'teacher_id' =>7,
+            'department_id' =>5,
+        ]);
+         
+        DB::table('lectures')->insert([
+            'name' => '原価計算',
+            'field_id' => 19,
+            'teacher_id' =>8,
+            'department_id' =>5,
+        ]);
+        DB::table('lectures')->insert([
+            'name' => '証券論',
+            'field_id' => 18,
+            'teacher_id' =>9,
+            'department_id' =>5,
+        ]);
+         
+        DB::table('lectures')->insert([
+            'name' => '管理会計',
+            'field_id' => 19,
+            'teacher_id' =>10,
+            'department_id' =>5,
+        ]);
+        
+        DB::table('lectures')->insert([
+            'name' => '現代小説の楽しみ',
+            'field_id' => 60,
+            'teacher_id' => 11,
+            'department_id' => 3,
+        ]);
+         
+        DB::table('lectures')->insert([
+            'name' => '文学の近代',
+            'field_id' =>60,
+            'teacher_id' =>11,
+            'department_id' =>3,
+        ]);
+        
          
     }
 }

@@ -36,5 +36,32 @@ class TeacherSeeder extends Seeder
          DB::table('teachers')->insert([
             'name' => '駒野雄一',
          ]);
+         
+         DB::table('teachers')->insert([
+            'name' => '菅野浩勢',
+         ]);
+         
+         DB::table('teachers')->insert([
+            'name' => '	山崎秀彦',
+         ]);
+         
+         DB::table('teachers')->insert([
+            'name' => '成岡　浩一',
+         ]);
+         
+         DB::table('teachers')->insert([
+            'name' => '葛山　康典',
+         ]);
+         
+         DB::table('teachers')->insert([
+            'name' => '齋藤　正章',
+         ]);
+         
+         DB::table('teachers')->insert([
+            'name' => '石原千秋',
+         ]);
+         
+
+         
     }
 }

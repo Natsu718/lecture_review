@@ -11,10 +11,12 @@
                 <div class="hidden space-x-8 sm:-my-px sm:ml-15 sm:flex">
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         <img src="{{ asset('/img/WLogo.jpg') }}" style="width:70px; height:auto;">
+                        <p style="width:7px"></p>
                         {{ __('早稲田シラバス') }}
                     </x-nav-link>
                     <x-nav-link :href="route('show')" :active="request()->routeIs('show')">
                         <img src="{{ asset('/img/search.jpg') }}" style="width:70px; height:auto;">
+                        <p style="width:7px"></p>
                         {{ __('レビュー検索') }}
                     </x-nav-link> 
 
@@ -29,6 +31,7 @@
                     @if(Auth::id() == 1)
                     <x-nav-link :href="route('lectures_delete')" :active="request()->routeIs('lectures_delete')">
                         <img src="{{ asset('/img/setting.jpg') }}" style="width:70px; height:auto;">
+                        <p style="width:4px"></p>
                         {{ __('管理者ページ') }}
                     </x-nav-link> 
                     @endif
@@ -71,10 +74,8 @@
             </div>
             @endauth
             @guest
-            <div class="header-btn">
-                <a href="/login">ログイン</a>
-                <a href="/register">新規登録</a>
-            </div>
+                <a href="/login"><span class="header-btn pekopeko">ログイン</span></a>
+                <a href="/register"><span class="header-btn pekopeko">新規登録</span></a>
             @endguest
 
             <!-- Hamburger -->

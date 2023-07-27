@@ -26,6 +26,12 @@
                         <img src="{{ asset('/img/my_show.jpg') }}" style="width:70px; height:auto;">
                         {{ __('投稿したレビュー一覧') }}
                     </x-nav-link> 
+                    @if(Auth::id() == 1)
+                    <x-nav-link :href="route('lectures_delete')" :active="request()->routeIs('lectures_delete')">
+                        <img src="{{ asset('/img/setting.jpg') }}" style="width:70px; height:auto;">
+                        {{ __('管理者ページ') }}
+                    </x-nav-link> 
+                    @endif
                     
                 </div>
             </div>

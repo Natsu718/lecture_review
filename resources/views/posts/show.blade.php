@@ -27,6 +27,7 @@
           <br>
             <table>      
                 <tr>
+                  <th width="50" align="center"></th>
                   <th width="300" align="center" >科目名</th>
                   <th width="150" align="center">教員名</th>
                   <th width="250" align="center">分野コード</th>
@@ -36,6 +37,7 @@
                   
               @forelse($lectures as $lecture)
                   <tr>
+                      <td width="50" align="center"><img src="{{ asset('/img/lecture.jpg') }}" style="width:70px; height:auto;"></td>
                       <td width="300" align="center"><a href="/search/{{ $lecture->id }}">{{ $lecture->name }}</td>
                       <td width="150" align="center">{{ $lecture->teacher->name }}</td>
                       <td width="250" align="center">{{ $lecture->field->name }}</td>

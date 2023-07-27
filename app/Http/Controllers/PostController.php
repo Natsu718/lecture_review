@@ -131,4 +131,21 @@ class PostController extends Controller
         $lecture->save();
         return redirect('/user/posts');
     }
+    
+    public function lectures_delete(Lecture $lecture, Teacher $teacher)
+    {
+        return view('posts.lecture_delete')->with(['lectures'=>$lecture->get(), 'teachers'=>$teacher->get()]);
+    }
+    
+    public function lecture_delete(Lecture $lecture)
+    {
+        $lecture->delete();
+        return redirect('/lectures/delete');
+    }
+    
+    public function teacher_delete(Teacher $teacher)
+    {
+        $teacher->delete();
+        return redirect('/lectures/delete');
+    }
 }

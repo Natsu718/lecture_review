@@ -39,6 +39,10 @@ Route::controller(PostController::class)->middleware(['auth'])->group(function()
     Route::post('/posts/{lecture}', 'store_post')->name('store_post');
     Route::put('/posts/{post}', 'update')->name('update');
     Route::delete('/posts/{post}', 'delete')->name('delete');
+    
+    Route::get('/lectures/delete', 'lectures_delete')->name('lectures_delete');
+    Route::delete('/{lecture}', 'lecture_delete')->name('lecture_delete');
+    Route::delete('/{teacher}', 'teacher_delete')->name('teacher_delete');
 });
 
 Route::middleware('auth')->group(function () {

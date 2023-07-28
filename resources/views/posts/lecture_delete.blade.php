@@ -1,5 +1,6 @@
 <x-app-layout>
   <div class="p-6">
+        <h1>　現在の登録者数　　{{ $user_number->id }}　人</h1>
     <h1>　授業一覧</h1>
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">

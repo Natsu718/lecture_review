@@ -44,6 +44,7 @@
                 <td align="center">{{ $lecture->department->name }}</a></td>
               </tr>
             @empty
+              <td width="50" align="center"><img src="{{ asset('/img/lecture.jpg') }}" style="width:70px; height:auto;"></td>
               <td>講義が見つかりません</td>
             @endforelse
           </table>

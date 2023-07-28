@@ -45,7 +45,8 @@
                       <td width="100" align="center">{{ $lecture->review }}</td>
                   </tr>
               @empty
-              <td width="200">講義が見つかりません</td>
+                  <td width="50" align="center"><img src="{{ asset('/img/lecture.jpg') }}" style="width:70px; height:auto;"></td>
+                  <td width="300" align="center">講義が見つかりません</td>
               @endforelse
             </table>
       </div>

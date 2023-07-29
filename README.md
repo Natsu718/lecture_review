@@ -34,7 +34,7 @@
 ## データ構成
 <b>テーブル構成・リレーション</b>
 <br>
-<img src="public/img/ER図.png" width="700">
+<img src="public/img/ER図.png" width="400">
 <br>
 <b>各テーブル詳細</b>
 <br>

@@ -11,11 +11,16 @@
 
 
 ## 概要
-
+「数学の課題がメインの講義ないかなー」なんてなんとなく分野は決まってるけどその講義の進め方がどうなってるかわからないという人へ
+早稲田講義レビューでは
 <a href="https://lecturereview-8806b1ca4f86.herokuapp.com/" target="_blank">アプリへGO</a>
 ## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+<b>使用言語：</b>
+- PHP8
+- Laravel9
+- HTML
+- CSS
+- Tailwind
 
 ### Premium Partners
 

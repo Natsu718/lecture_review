@@ -33,7 +33,7 @@
 
 ##データ構成
 <b>テーブル構成・リレーション</b>
-<img src="">
+<img src="/public/ER図.jpg">
 <b>各テーブル詳細</b>
 
 ### Premium Partners

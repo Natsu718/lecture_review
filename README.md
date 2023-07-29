@@ -1,4 +1,4 @@
-<p align="center"><a href="https://lecturereview-8806b1ca4f86.herokuapp.com/" target="_blank"><img src="img/WLogo.jpg" width="400" alt="早稲田講義レビュー"></a></p>
+<p align="center"><a href="https://lecturereview-8806b1ca4f86.herokuapp.com/" target="_blank"><img src="public/img/WLogo.jpg" width="400" alt="早稲田講義レビュー"></a></p>
 
 <p align="center">
 <a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>

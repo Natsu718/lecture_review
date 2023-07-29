@@ -42,7 +42,7 @@
 
 ## こだわり
 <video src="public/video/レビュー投稿 - Made with Clipchamp.mp4"/></video>
-<video src="public/video/レビュー検索 - Made with Clipchamp.mp4"/></video>
+<video src="public/video/レビュー検索.mp4"/></video>
 <video src="public/video/授業作成 - Made with Clipchamp.mp4"></video>
 
 ### Premium Partners

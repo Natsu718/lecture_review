@@ -15,7 +15,7 @@
 早稲田講義レビューでは
 <a href="https://lecturereview-8806b1ca4f86.herokuapp.com/" target="_blank">アプリへGO</a>
 ## Laravel Sponsors
-<b>使用言語：</b>
+使用言語：
 - PHP8
 - Laravel9
 - HTML

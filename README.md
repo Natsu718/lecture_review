@@ -41,15 +41,13 @@
 <img src="public/img/テーブル詳細.png" width="700">
 
 ## こだわり
-<div width="500">
+
+直観的に操作がわかるよう最低限の情報を一覧表示するようにしている.
 https://github.com/Natsu718/lecture_review/assets/130198298/cc124681-10b2-420c-afc0-66f0777c290e
-</div>
-
-
 https://github.com/Natsu718/lecture_review/assets/130198298/7eb15a17-e93b-4c70-9200-9f3e30164370
-
-
-
+<br>
+<br>
+また全ての講義をシーダーファイルで入れることが困難なため講義に対して初めてレビューを書く人に授業作成をしてもらうようにした.
 https://github.com/Natsu718/lecture_review/assets/130198298/25b1e173-1d5e-4037-bb97-a011ec6cb7ff
 
 ### Premium Partners

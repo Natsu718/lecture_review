@@ -15,12 +15,26 @@
 早稲田講義レビューでは
 <a href="https://lecturereview-8806b1ca4f86.herokuapp.com/" target="_blank">アプリへGO</a>
 ## Laravel Sponsors
-使用言語：
+<b>使用言語：</b>
 - PHP8
 - Laravel9
 - HTML
 - CSS
 - Tailwind
+  
+<b>開発環境：</b>
+- Cloud9
+- MariaDB
+- GitHub
+- Git
+
+<b>デプロイ：</b>
+- Heroku
+
+##データ構成
+<b>テーブル構成・リレーション</b>
+<img src="">
+<b>各テーブル詳細</b>
 
 ### Premium Partners
 

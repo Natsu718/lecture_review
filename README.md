@@ -34,17 +34,16 @@
 ## データ構成
 <b>テーブル構成・リレーション</b>
 <br>
-![ER図](https://github.com/Natsu718/lecture_review/assets/130198298/7a2ee7ba-0721-4212-9252-accbf1551473)
+<img src="public/img/ER図.png" width="700">
 <br>
 <b>各テーブル詳細</b>
 <br>
 <img src="public/img/テーブル詳細.png" width="700">
-![テーブル詳細](https://github.com/Natsu718/lecture_review/assets/130198298/7f6899d5-2567-4f88-9eec-d0528584f3a1)
 
 ## こだわり
-
+<div width="500">
 https://github.com/Natsu718/lecture_review/assets/130198298/cc124681-10b2-420c-afc0-66f0777c290e
-
+</div>
 
 
 https://github.com/Natsu718/lecture_review/assets/130198298/7eb15a17-e93b-4c70-9200-9f3e30164370

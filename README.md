@@ -33,9 +33,9 @@
 
 ##データ構成
 <b>テーブル構成・リレーション</b>
-<img src="/public/img/ER図.jpg">
+<img src="public/img/ER図.jpg" width="100">
 <b>各テーブル詳細</b>
-<img src="/public/img/テーブル詳細.jpg">
+<img src="public/img/テーブル詳細.jpg" width="100">
 ### Premium Partners
 
 - **[Vehikl](https://vehikl.com/)**

@@ -50,22 +50,24 @@ https://github.com/Natsu718/lecture_review/assets/130198298/7eb15a17-e93b-4c70-9
 
 <br>
 <br>
-また全ての講義をシーダーファイルで入れることが困難なため講義に対して初めてレビューを書く人に授業作成をしてもらうようにしています.その際間違えて登録をしてしまった場合、レビューまで投稿されていると講義や教授を消した際に困るため管理者ページのみで削除可能な設計になっています.
+また全ての講義をシーダーファイルで入れることが困難なため講義に対して初めてレビューを書く人に授業作成をしてもらうようにしています.その際間違えて登録をしてしまった場合,レビューまで投稿されていると講義や教授を消した際に困るため管理者ページのみで削除可能な設計になっています.
 
 https://github.com/Natsu718/lecture_review/assets/130198298/25b1e173-1d5e-4037-bb97-a011ec6cb7ff
 
 ## 使い方
+（上の動画を合わせてみてください）
+<b>レビューの検索</b><br>
+科目名の一部,またはプルダウンで学部を選択し,検索ボタンを押しましょう.該当する講義が並びます.おすすめ度が0以外ならばレビューがあるので科目名をクリックしてレビューの一覧をみてみましょう。
+
+<b>レビューの投稿</b><br>
+もし講義を受け終わったらぜひレビューを投稿しましょう.受けた講義を検索していてください.もし見つらないときは授業を作成をクリック.表示に従ってシラバス通りに講義を登録してください.スペース/英数字は半角で入れましょう.<br>
+講義ができたらいよいよレビュー投稿です。科目名をクリックして成績評価方法,コメント,おすすめ度を入力し登録をしましょう.<br>
+投稿できたか不安なときは「投稿したレビュー一覧」をチェックしてみてくださいね.
 
 
-## Contributing
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
+## 今後の計画
 
 
 ## 制作者連絡先
-
+natsu3@akane.waseda.jp

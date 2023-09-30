@@ -91,4 +91,5 @@ https://github.com/Natsu718/lecture_review/assets/130198298/25b1e173-1d5e-4037-b
 - 管理者によるレビュー削除機能
 
 ## 制作者連絡先
-natsu3@akane.waseda.jp
+Mail : o.natsumi1216@gmail.com
+X : https://twitter.com/nya__nuko685

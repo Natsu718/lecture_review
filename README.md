@@ -92,4 +92,4 @@ https://github.com/Natsu718/lecture_review/assets/130198298/25b1e173-1d5e-4037-b
 
 ## 制作者連絡先
 Mail : o.natsumi1216@gmail.com
-<br>X : https://twitter.com/nya__nuko685
+

@@ -9,6 +9,7 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use App\Models\Department;
 use App\Models\Post;
+use App\Notifications\ResetPasswordNotification;
 
 class User extends Authenticatable 
 {
@@ -55,5 +56,9 @@ class User extends Authenticatable
     //     return $this->belongsTo(Department::class);
     // }
     
-    
+    public function sendPasswordResetNotification($token)
+    {
+        $url = url("reset-password/${token}");
+        $this->notify(new ResetPasswordNotification($url));
+    }
 }

@@ -33,7 +33,12 @@
                         <img src="{{ asset('/img/setting.jpg') }}" style="width:70px; height:auto;">
                         <p style="width:4px"></p>
                         {{ __('管理者ページ') }}
-                    </x-nav-link> 
+                    </x-nav-link>
+                    <x-nav-link :href="route('user_name')" :active="request()->routeIs('user_name')">
+                        <img src="{{ asset('/img/hito.jpg') }}" style="width:70px; height:auto;">
+                        <p style="width:4px"></p>
+                        {{ __('ユーザー一覧') }}
+                    </x-nav-link>
                     @endif
                     
                 </div>

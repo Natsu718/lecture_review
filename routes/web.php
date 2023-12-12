@@ -3,9 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
-// use App\Http\Controllers\DepartmentController;
-// use App\Http\Controllers\GradeController;
-// use App\Http\Controllers\TeacherController;
+use App\Http\Controllers\AdministratorController;
 
 
 /*
@@ -40,6 +38,10 @@ Route::controller(PostController::class)->middleware(['auth'])->group(function()
     Route::put('/posts/{post}', 'update')->name('update');
     Route::delete('/posts/{post}', 'delete')->name('delete');
     
+});
+
+Route::controller(AdministratorController::class)->middleware(['auth'])->group(function(){
+    Route::get('/users', 'user_name')->name('user_name');
     Route::get('/lectures/delete', 'lectures_delete')->name('lectures_delete');
     Route::delete('/lecture/{lecture}', 'lecture_delete')->name('lecture_delete');
     Route::delete('/teacher/{teacher}', 'teacher_delete')->name('teacher_delete');
